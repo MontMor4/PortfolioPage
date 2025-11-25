@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { ChevronsDown } from "lucide-react"
 
 export function Hero() {
     useEffect(() => {
@@ -74,6 +75,19 @@ export function Hero() {
                     </div>
                 </div>
             </div>
+
+            {/* Scroll Down Button - Covers the Unicorn Studio badge */}
+            <a
+                href="#about"
+                className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-12 py-3 rounded-full bg-zinc-900 border border-zinc-900/10 text-white hover:bg-zinc-800 transition-all duration-300 cursor-pointer shadow-lg"
+                onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+            >
+                <span className="text-sm font-medium tracking-wide">get to know me</span>
+                <ChevronsDown className="w-4 h-4" />
+            </a>
         </div>
     )
 }

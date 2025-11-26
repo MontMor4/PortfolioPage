@@ -46,7 +46,7 @@ export function About() {
                                 — I don't just write code; I solve problems.
                             </p>
                             <p>
-                                My journey ranges from competitive programming to developing automation tools for medical devices in Germany.
+                                My journey ranges from competitive programming to developing automated tests and tools for medical devices in Germany.
                                 I believe technology is a means to an end, not the end itself.
                                 That is why I don't limit myself to a single tech stack; whether the challenge requires Python,
                                 full-stack development, or diving into AI, I adapt my toolkit to deliver the best solution.

@@ -79,7 +79,7 @@ export function Hero() {
             {/* Scroll Down Button - Covers the Unicorn Studio badge */}
             <a
                 href="#about"
-                className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-12 py-3 rounded-full bg-zinc-900 border border-zinc-900/10 text-white hover:bg-zinc-800 transition-all duration-300 cursor-pointer shadow-lg"
+                className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-12 py-3 rounded-full bg-[#0a0a0a] border border-[#0a0a0a] text-white hover:bg-zinc-900 transition-all duration-300 cursor-pointer shadow-lg"
                 onClick={(e) => {
                     e.preventDefault();
                     document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });

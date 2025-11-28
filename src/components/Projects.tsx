@@ -95,9 +95,9 @@ const projects: Project[] = [
     },
     {
         title: "Automated Tests Tool",
-        description: "",
-        details: "",
-        tags: [],
+        description: "Tool to automate tests and generate reports",
+        details: "Proactively designed, developed, and deployed a standalone executable application (Python/Tkinter) to streamline the execution of hundreds of mandatory semi-automated tests, eliminating the need for manual terminal commands by providing a centralized GUI. Engineered and integrated a novel reporting feature using LM Studio (Local LLM) to auto-generate comprehensive PDF test reports, adhering to strict data privacy protocols",
+        tags: ["Python", "Tkinter", "LM Studio", "PDF", "Data Privacy"],
         link: "#",
         image: automatedTestsTool
     },

@@ -14,6 +14,8 @@ import vehicleRoutingProblem from "../assets/vehicle-routing-problem.jpg"
 import mlFraudDetection from "../assets/fraud-detection-kaggle-competition.jpg"
 import personalWebsite from "../assets/personal-website.png"
 import seapaWebsite from "../assets/seapa-website.png"
+import automatedTestsTool from "../assets/automated-tests-tool.jpg"
+import workInProgress from "../assets/work-in-progress.jpg"
 
 interface Project {
     title: string;
@@ -47,8 +49,16 @@ const projects: Project[] = [
             "Demonstrated that Genetic Algorithms find high-quality solutions in a reasonable time frame, making them ideal for complex scenarios where Gurobi's optimal solutions may be too slow"
         ],
         tags: ["Graphs", "Genetic Algorithms", "Optimization", "Python", "Gurobi"],
-        link: "#",
+        link: "https://github.com/PedroVIOliv/trabalhoIA_ALGGEN_DRONE",
         image: vehicleRoutingProblem
+    },
+    {
+        title: "Personal Website",
+        description: "This personal portfolio website that you are right now ;D",
+        details: "This is my personal portfolio website, built to showcase my projects and skills. It leverages modern web technologies like React, TypeScript, and Tailwind CSS for a responsive and interactive user experience, enhanced with Framer Motion for animations and ShadCN UI for components.",
+        tags: ["React", "Vite", "TypeScript", "ShadCN UI", "Framer Motion", "Tailwind CSS"],
+        link: "#",
+        image: personalWebsite
     },
     {
         title: "ML Fraud Detection",
@@ -65,59 +75,56 @@ const projects: Project[] = [
         image: mlFraudDetection
     },
     {
-        title: "Personal Website",
-        description: "This personal portfolio website that you are right now ;D",
-        details: "This is my personal portfolio website, built to showcase my projects and skills. It leverages modern web technologies like React, TypeScript, and Tailwind CSS for a responsive and interactive user experience, enhanced with Framer Motion for animations and ShadCN UI for components.",
-        tags: ["React", "Vite", "TypeScript", "ShadCN UI", "Framer Motion", "Tailwind CSS"],
-        link: "#",
-        image: personalWebsite
-    },
-    {
         title: "SEAPA Web System",
         description: "System made for Secretaria Estadual de Agricultura de Minas Gerais",
-        details: "",
-        tags: ["HTML", "CSS", "JavaScript", "Frontend"],
-        link: "",
+        details: [
+            "Spearheaded the complete overhaul and modernization of the SIGEP system's user interface, building a new application (frontend-v2) from the ground up to replace the legacy frontend. The goal was to deliver a modern, high-performance, and maintainable platform with a strong focus on user experience.",
+            "Foundation using React, TypeScript, and Vite to ensure a robust and scalable codebase.",
+            "Developed a new Design System with reusable, responsive, and accessible components based on ShadCN UI, Radix UI, and Lucide Icons.",
+            "Implemented complex features, including interactive dashboards with Recharts, advanced data tables with pagination and filtering using TanStack Table, and dynamic forms with schema-based validation via Zod.",
+        ],
+        tags: ["React", "TypeScript", "Vite", "ShadCN UI", "Radix UI", "Lucide Icons"],
+        link: "#",
         image: seapaWebsite
     },
     {
-        title: "Data Viz Dashboard",
-        description: "Interactive dashboard for visualizing complex datasets.",
-        details: "Created a dynamic dashboard for visualizing large-scale datasets. leveraged D3.js for custom charts and React for state management, enabling users to filter and explore data in real-time.",
-        tags: ["D3.js", "React", "Data Visualization", "Analytics"],
+        title: "Automated Tests Tool",
+        description: "",
+        details: "",
+        tags: [],
         link: "#",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+        image: automatedTestsTool
     },
     {
-        title: "Smart Home Hub",
-        description: "IoT platform for managing connected home devices.",
-        details: "Developed a centralized hub to control various smart home devices via MQTT protocol. The system runs on a Raspberry Pi and features a web interface for remote monitoring and automation scheduling.",
-        tags: ["IoT", "MQTT", "Raspberry Pi", "Python"],
+        title: "Work in progress",
+        description: "",
+        details: "",
+        tags: [],
         link: "#",
-        image: "https://images.unsplash.com/photo-1558002038-1091a1661116?q=80&w=2070&auto=format&fit=crop"
+        image: workInProgress
     },
     {
-        title: "Crypto Tracker",
-        description: "Real-time cryptocurrency price tracker and portfolio manager.",
-        details: "A real-time financial tracking application that consumes CoinGecko API. Features include live price updates via WebSockets, portfolio value calculation, and historical price charting.",
-        tags: ["React", "Web3", "API Integration", "Finance"],
+        title: "Work in progress",
+        description: "",
+        details: "",
+        tags: [],
         link: "#",
-        image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?q=80&w=1974&auto=format&fit=crop"
+        image: workInProgress
     },
     {
-        title: "Task Management App",
-        description: "Collaborative task manager with real-time updates.",
-        details: "Built a Trello-like task management tool supporting real-time collaboration. Users can create boards, drag-and-drop tasks, and see updates instantly across devices using Firebase Realtime Database.",
-        tags: ["Vue.js", "Firebase", "Real-time", "Productivity"],
+        title: "Work in progress",
+        description: "",
+        details: "",
+        tags: [],
         link: "#",
-        image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop"
+        image: workInProgress
     },
     {
         title: "Wordpress website",
         description: "Website for a local business",
         details: "Integrated Stable Diffusion models into a user-friendly web interface. Allows users to generate artistic images from text prompts, featuring adjustable parameters like guidance scale and seed control.",
         tags: ["AI", "Stable Diffusion", "Python", "Gradio"],
-        link: "#",
+        link: "https://redememorial.com.br/",
         image: wordpressWebsite
     }
 ];

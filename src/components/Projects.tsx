@@ -42,8 +42,9 @@ const projects: Project[] = [
         title: "Vehicle Routing Problem",
         description: "Research Paper: Capacitated VRP solver using Gurobi and Genetic Algorithms.",
         details: [
-            "Solved the Capacitated Vehicle Routing Problem (CVRP) by implementing and comparing two distinct approaches: an exact method using the Gurobi solver and a metaheuristic approach using Genetic Algorithms.",
-            "The study analyzed trade-offs between solution quality and computational time."
+            "Implemented two approaches: one using Gurobi (a solver) and the other using Genetic Algorithm Optimization (a metaheuristic)",
+            "Evaluated the performance of both approaches using real-world datasets to compare their effectiveness in a graph optimization problem",
+            "Demonstrated that Genetic Algorithms find high-quality solutions in a reasonable time frame, making them ideal for complex scenarios where Gurobi's optimal solutions may be too slow"
         ],
         tags: ["Graphs", "Genetic Algorithms", "Optimization", "Python", "Gurobi"],
         link: "#",
@@ -56,11 +57,11 @@ const projects: Project[] = [
             "Developed a complete machine learning pipeline to predict fraudulent transactions using a large, real-world dataset from a Kaggle competition.",
             "Engineered and preprocessed a complex dataset with over 400 features, implementing strategies to handle high percentages of missing data, severe class imbalance, and mixed data types (numerical and categorical).",
             "Systematically evaluated and compared the performance of multiple classification models, including baseline Decision Trees, XGBoost, LightGBM, and Random Forest, using the ROC AUC metric.",
-            "Achieved a competitive ROC AUC score of 0.89 on the Kaggle leaderboard by implementing a tuned Random Forest model.",
+            "Achieved a competitive ROC AUC score of 0.93 on the Kaggle leaderboard by implementing a tuned Random Forest model.",
             "Experimented with advanced techniques such as ensemble stacking and performed systematic hyperparameter tuning using Optuna to optimize model performance."
         ],
         tags: ["GenAI", "LLM", "RAG", "Python", "React"],
-        link: "#",
+        link: "https://www.kaggle.com/competitions/ieee-fraud-detection/data",
         image: mlFraudDetection
     },
     {
@@ -74,7 +75,7 @@ const projects: Project[] = [
     {
         title: "SEAPA Web System",
         description: "System made for Secretaria Estadual de Agricultura de Minas Gerais",
-        details: "My initial step into web development. Built a responsive portfolio from scratch without frameworks to deeply understand the DOM, CSS Grid/Flexbox, and modern JavaScript ES6+ features.",
+        details: "",
         tags: ["HTML", "CSS", "JavaScript", "Frontend"],
         link: "",
         image: seapaWebsite

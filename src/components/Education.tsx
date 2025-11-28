@@ -22,7 +22,7 @@ export function Education() {
     ]
 
     return (
-        <section id="education" className="container mx-auto py-24 sm:py-32">
+        <section id="education" className="container mx-auto py-12 sm:py-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12 text-center">Education</h2>
             <div className="mx-auto max-w-4xl space-y-8">
                 {education.map((edu, index) => (

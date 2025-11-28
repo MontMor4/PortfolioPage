@@ -167,7 +167,7 @@ export function Experience() {
     }
 
     return (
-        <section id="experience" className="container mx-auto py-24 sm:py-32">
+        <section id="experience" className="container mx-auto py-12 sm:py-16">
             <div className="grid gap-12 lg:grid-cols-[1fr_300px] items-start max-w-6xl mx-auto">
                 {/* Left Column: Content */}
                 <div>

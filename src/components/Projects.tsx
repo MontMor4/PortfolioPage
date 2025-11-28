@@ -205,7 +205,7 @@ export function Projects() {
     const secondRow = projects.slice(5, 10);
 
     return (
-        <section id="projects" className="py-24 overflow-hidden relative">
+        <section id="projects" className="py-12 sm:py-16 overflow-hidden relative">
             <div className="container mx-auto px-6 mb-12 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
                     Featured <span className="text-zinc-500">Projects</span>

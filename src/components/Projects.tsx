@@ -15,19 +15,36 @@ import mlFraudDetection from "../assets/fraud-detection-kaggle-competition.jpg"
 import personalWebsite from "../assets/personal-website.png"
 import seapaWebsite from "../assets/seapa-website.png"
 
-const projects = [
+interface Project {
+    title: string;
+    description: string;
+    details: string | string[];
+    tags: string[];
+    link: string;
+    image: string;
+}
+
+const projects: Project[] = [
     {
         title: "Published Research Paper",
         description: "Hybrid NSGA-III - Evolutionary algorithms for multi-objective optimization.",
-        details: "A comprehensive study improving the NSGA-III algorithm by integrating local search heuristics. The hybrid approach demonstrated superior convergence and diversity on standard benchmark test suites compared to the original algorithm. This study involved extensive experimentation with various mutation and crossover operators to fine-tune the algorithm's performance. The results showed a significant improvement in hypervolume and inverted generational distance metrics, making it a viable candidate for solving complex real-world multi-objective optimization problems.",
+        details: [
+            "A comprehensive study improving the NSGA-III algorithm by integrating local search heuristics.",
+            "The hybrid approach demonstrated superior convergence and diversity on standard benchmark test suites compared to the original algorithm.",
+            "This study involved extensive experimentation with various mutation and crossover operators to fine-tune the algorithm's performance.",
+            "The results showed a significant improvement in hypervolume and inverted generational distance metrics, making it a viable candidate for solving complex real-world multi-objective optimization problems."
+        ],
         tags: ["AI", "Genetic Algorithms", "Optimization", "Research", "NSGA-III"],
-        link: "#",
+        link: "https://proceedings.sbmac.org.br/sbmac/article/view/4548",
         image: researchPaper
     },
     {
         title: "Vehicle Routing Problem",
         description: "Research Paper: Capacitated VRP solver using Gurobi and Genetic Algorithms.",
-        details: "Solved the Capacitated Vehicle Routing Problem (CVRP) by implementing and comparing two distinct approaches: an exact method using the Gurobi solver and a metaheuristic approach using Genetic Algorithms. The study analyzed trade-offs between solution quality and computational time.",
+        details: [
+            "Solved the Capacitated Vehicle Routing Problem (CVRP) by implementing and comparing two distinct approaches: an exact method using the Gurobi solver and a metaheuristic approach using Genetic Algorithms.",
+            "The study analyzed trade-offs between solution quality and computational time."
+        ],
         tags: ["Graphs", "Genetic Algorithms", "Optimization", "Python", "Gurobi"],
         link: "#",
         image: vehicleRoutingProblem
@@ -35,15 +52,13 @@ const projects = [
     {
         title: "ML Fraud Detection",
         description: "Kaggle competition: Credit Card Fraudulent Transactions Detection.",
-        details: `- Developed a complete machine learning pipeline to predict fraudulent transactions using a large, real-world dataset
-                    from a Kaggle competition.
-                \n- Engineered and preprocessed a complex dataset with over 400 features, implementing strategies to handle high
-                    percentages of missing data, severe class imbalance, and mixed data types(numerical and categorical).
-                \n- Systematically evaluated and compared the performance of multiple classification models, including baseline
-                    Decision Trees, XGBoost, LightGBM, and Random Forest, using the ROC AUC metric.
-                \n- Achieved a competitive ROC AUC score of 0.89 on the Kaggle leaderboard by implementing a tuned Random Forest model.
-                \n- Experimented with advanced techniques such as ensemble stacking and performed systematic hyperparameter tuning
-                    using Optuna to optimize model performance.`,
+        details: [
+            "Developed a complete machine learning pipeline to predict fraudulent transactions using a large, real-world dataset from a Kaggle competition.",
+            "Engineered and preprocessed a complex dataset with over 400 features, implementing strategies to handle high percentages of missing data, severe class imbalance, and mixed data types (numerical and categorical).",
+            "Systematically evaluated and compared the performance of multiple classification models, including baseline Decision Trees, XGBoost, LightGBM, and Random Forest, using the ROC AUC metric.",
+            "Achieved a competitive ROC AUC score of 0.89 on the Kaggle leaderboard by implementing a tuned Random Forest model.",
+            "Experimented with advanced techniques such as ensemble stacking and performed systematic hyperparameter tuning using Optuna to optimize model performance."
+        ],
         tags: ["GenAI", "LLM", "RAG", "Python", "React"],
         link: "#",
         image: mlFraudDetection
@@ -51,7 +66,7 @@ const projects = [
     {
         title: "Personal Website",
         description: "This personal portfolio website that you are right now ;D",
-        details: "",
+        details: "This is my personal portfolio website, built to showcase my projects and skills. It leverages modern web technologies like React, TypeScript, and Tailwind CSS for a responsive and interactive user experience, enhanced with Framer Motion for animations and ShadCN UI for components.",
         tags: ["React", "Vite", "TypeScript", "ShadCN UI", "Framer Motion", "Tailwind CSS"],
         link: "#",
         image: personalWebsite
@@ -61,7 +76,7 @@ const projects = [
         description: "System made for Secretaria Estadual de Agricultura de Minas Gerais",
         details: "My initial step into web development. Built a responsive portfolio from scratch without frameworks to deeply understand the DOM, CSS Grid/Flexbox, and modern JavaScript ES6+ features.",
         tags: ["HTML", "CSS", "JavaScript", "Frontend"],
-        link: "", // Removed link to test conditional rendering
+        link: "",
         image: seapaWebsite
     },
     {
@@ -106,7 +121,7 @@ const projects = [
     }
 ];
 
-const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
+const ProjectCard = ({ project }: { project: Project }) => (
     <div className="w-[380px] h-[420px] relative shrink-0 mx-4 group/card perspective-1000">
         <Card className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-card/50 backdrop-blur-sm border-white/10 hover:border-white/20 transition-all duration-500 ease-out hover:scale-105 hover:z-50 hover:shadow-2xl hover:bg-card/95 overflow-hidden flex flex-col">
 
@@ -154,9 +169,19 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
                     {/* Expanded Content - Fades In */}
                     <div className="flex-grow opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 delay-100 flex flex-col justify-between min-h-0">
                         <div className="overflow-y-auto pr-2 thin-scrollbar mb-4">
-                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                {project.details}
-                            </p>
+                            {Array.isArray(project.details) ? (
+                                <ul className="list-disc list-outside ml-4 space-y-1">
+                                    {project.details.map((detail, i) => (
+                                        <li key={i} className="text-sm text-muted-foreground leading-relaxed">
+                                            {detail}
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                    {project.details}
+                                </p>
+                            )}
                         </div>
 
                         {project.link && project.link !== "#" && project.link !== "" && (

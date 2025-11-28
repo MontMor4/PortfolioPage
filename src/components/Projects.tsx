@@ -1,5 +1,6 @@
 import { Badge } from "./ui/badge"
 import { Button } from "./ui/button"
+import { cn } from "@/lib/utils"
 import {
     Card,
     CardContent,
@@ -16,6 +17,11 @@ import personalWebsite from "../assets/personal-website.png"
 import seapaWebsite from "../assets/seapa-website.png"
 import automatedTestsTool from "../assets/automated-tests-tool.jpg"
 import workInProgress from "../assets/work-in-progress.jpg"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useLayoutEffect, useRef } from "react"
+
+gsap.registerPlugin(ScrollTrigger)
 
 interface Project {
     title: string;
@@ -129,8 +135,8 @@ const projects: Project[] = [
     }
 ];
 
-const ProjectCard = ({ project }: { project: Project }) => (
-    <div className="w-[380px] h-[420px] relative shrink-0 mx-4 group/card perspective-1000">
+const ProjectCard = ({ project, className }: { project: Project; className?: string }) => (
+    <div className={cn("project-card w-[380px] h-[420px] relative shrink-0 mx-4 group/card perspective-1000", className)}>
         <Card className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-card/50 backdrop-blur-sm border-white/10 hover:border-white/20 transition-all duration-500 ease-out hover:scale-105 hover:z-50 hover:shadow-2xl hover:bg-card/95 overflow-hidden flex flex-col">
 
             {/* Image Section - Slides Up and Out */}
@@ -210,9 +216,39 @@ const ProjectCard = ({ project }: { project: Project }) => (
 export function Projects() {
     const firstRow = projects.slice(0, 5);
     const secondRow = projects.slice(5, 10);
+    const containerRef = useRef<HTMLElement>(null)
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            const ctx = gsap.context(() => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top 60%",
+                        toggleActions: "play none none reverse"
+                    }
+                })
+
+                tl.from(".project-card-row-1", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.1,
+                })
+                    .from(".project-card-row-2", {
+                        y: 100,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.1,
+                    }, "<0.2")
+            }, containerRef)
+        }, containerRef)
+
+        return () => ctx.revert()
+    }, [])
 
     return (
-        <section id="projects" className="py-12 sm:py-16 overflow-hidden relative">
+        <section id="projects" ref={containerRef} className="py-12 sm:py-16 overflow-hidden relative">
             <div className="container mx-auto px-6 mb-12 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
                     Featured <span className="text-zinc-500">Projects</span>
@@ -227,7 +263,7 @@ export function Projects() {
                 <div className="relative w-full overflow-visible group z-10 hover:z-40 transition-all duration-300">
                     <div className="flex w-max animate-marquee-left group-hover:paused">
                         {[...firstRow, ...firstRow, ...firstRow, ...firstRow].map((project, index) => (
-                            <ProjectCard key={`row1-${index}`} project={project} />
+                            <ProjectCard key={`row1-${index}`} project={project} className="project-card-row-1" />
                         ))}
                     </div>
                 </div>
@@ -236,7 +272,7 @@ export function Projects() {
                 <div className="relative w-full overflow-visible group z-10 hover:z-40 transition-all duration-300">
                     <div className="flex w-max animate-marquee-right group-hover:paused">
                         {[...secondRow, ...secondRow, ...secondRow, ...secondRow].map((project, index) => (
-                            <ProjectCard key={`row2-${index}`} project={project} />
+                            <ProjectCard key={`row2-${index}`} project={project} className="project-card-row-2" />
                         ))}
                     </div>
                 </div>
